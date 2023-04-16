@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>retrive_topic_checkbox</title>
+</head>
+<body>
+    <center>
+        <h1>retrive_topic_checkbox</h1>
+        <form method="POST" action="{% url 'retrive_topic' %}">
+            {% csrf_token %}
+
+            <label for="tn">Topic_name</label><br>
+            
+                {% for i in topic %}
+                <label for="tn">{{i.topic_name}}</label>
+                <input type="checkbox" name="tn" id="tn" value="{{i}}"><br>
+                {% endfor %}
+           
+            <br>
+            <br>
+            <input type="submit" value="Retrive_topic">
+
+        </form>
+    </center>
+</body>
+</html>
